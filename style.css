@@ -1,0 +1,493 @@
+/* 🎨 นำเข้า font Kanit จาก Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* 🌈 ตัวแปรสีหลักของเว็บไซต์ */
+:root {
+  --primary-color: #eac0a2; /* สีพื้นหลังหลักของหน้า */
+  --secondary-color: #6b4632; /* สีตัวอักษรหลักหรือเน้น */
+  --bg-card-color: #f5f5f5; /* สีพื้นหลังอ่อน เช่น section หรือ card */
+  --text-title-color: #514646; /* สีหัวข้อหรือ border */
+  --text-desc-color: #a7a2a4; /* สีเนื้อหา */
+}
+
+/* ✏️ ตั้งค่า font และ box-sizing พื้นฐาน */
+* {
+  font-family: "Kanit", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  text-decoration-line: none;
+  color: white;
+}
+
+/* 📋 รายการ (List) */
+ul {
+  padding: 0;
+  margin: 0 0 0 24px;
+  list-style: outside;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+li div {
+  color: var(--text-desc-color);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* 🧩 Section ย่อยทั่วไป */
+.section {
+  margin-bottom: 8px;
+}
+
+.section .title {
+  color: var(--text-title-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.section .desc {
+  color: var(--text-desc-color);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* 🖥 จัด layout ของ body */
+body {
+  width: 100dvw;
+  /* height: 100dvh; */
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 📦 Container หลัก */
+.container {
+  margin: 16px;
+  width: 90%;
+  max-width: 700px;
+  /* ❌ ลบ height เดิมออก */
+  /* height: calc(100dvh - 32px); */
+  /* ✅ ใช้ min-height แทน */
+  min-height: calc(100dvh - 32px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+/* 🔼 ส่วนบน (Top Section) */
+.top {
+  /* ❌ เอา flex: 2 ออก เพราะเราจะ fix ความสูงเอง */
+  /* flex: 2; */
+  position: relative;
+  border-radius: 16px;
+  overflow: visible;
+  padding: 0 0 0 24px;
+  margin: 16px 24px 16px 0;
+  /* ✅ เพิ่มความสูงคงที่ */
+  height: 70dvh; /* หรือใช้ 50vh ก็ได้ เช่น height: 50vh; */
+}
+
+/* 🧩 ส่วนซ้าย (Left Section) */
+.left {
+  position: absolute;
+  left: 0;
+  top: -16px;
+  bottom: -16px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1;
+}
+
+/* 📸 ส่วนรูปโปรไฟล์ */
+.profileImg {
+  margin: 0;
+  padding-top: 8px;
+  /* flex: 2; */
+  height: 45dvh;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileImg .top {
+  /* flex: 1; */
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 16px 0 0 0;
+}
+
+.profileImg .top .left {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  background-color: var(--bg-card-color);
+  border-radius: 30px 90px 0 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImg .top .right {
+  position: absolute;
+  width: 50%;
+  left: 45%;
+  top: -8px;
+  bottom: 0;
+  border-radius: 30px 90px 0 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.profileImg .bottom {
+  flex: 7;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 0 16px 16px 16px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.ImgBg {
+  height: 90%;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 16px;
+  border: 16px;
+  left: 16px;
+  right: 16px;
+  border-radius: 16px;
+}
+
+.profileImgItem {
+  position: absolute;
+  height: 100%;
+  bottom: 20px;
+  left: 50px;
+  z-index: 3;
+}
+
+/* ℹ️ ส่วนข้อมูลฝั่งซ้าย (Profile Info) */
+.profileInfo {
+  flex: 1;
+  border-radius: 16px;
+  background-color: var(--bg-card-color);
+  padding: 16px 24px 16px 24px;
+}
+
+/* 🧾 ส่วนขวา (Right Section) */
+.warp {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.right {
+  position: absolute;
+  top: 8px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 16px;
+  background-color: var(--secondary-color);
+  z-index: 0;
+}
+
+.rightStart {
+  flex: 2;
+}
+
+.rightEnd {
+  flex: 3;
+  padding: 24px 16px 0 50px;
+  box-sizing: border-box;
+}
+
+.rightEnd .head {
+  color: white;
+  font-size: 44px;
+  font-weight: 500;
+}
+
+.rightEnd .desc {
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+}
+.rightSection .desc {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* 📚 กล่องข้อมูลย่อยในฝั่งขวา */
+.rightSection {
+  margin: 24px 0 0 0;
+  color: white;
+}
+
+.rightSection .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.rightSection ul li {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* 🔽 ส่วนล่าง (Bottom Section) */
+.bottom {
+  margin: 16px 0 0 0;
+  padding: 16px 24px 16px 24px;
+  border-radius: 16px;
+  background-color: var(--bg-card-color);
+  /* ❌ เอา flex: 2 ออก เพราะเราจะ fix ความสูงเอง */
+  /* flex: 1; */
+  /* ✅ ให้ยืดตามข้อมูล (ไม่ fix ความสูง) */
+  /* flex: unset; */
+}
+.galleryList {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.galleyItem {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+.containerGalleryImg {
+  flex: 1;
+  color: black;
+  display: flex; /* ✅ ให้ container ปรับตามขนาดรูป */
+  align-items: center;
+}
+
+.galleryImg {
+  width: 25dvh;
+  height: auto;
+  display: block; /* ✅ ตัดช่องว่างด้านล่างของ inline image */
+  object-fit: cover; /* ป้องกันภาพเบี้ยว */
+  border-radius: 4px;
+}
+.galleryDetail .title {
+  color: var(--text-title-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.galleryDetail {
+  flex: 2;
+  padding: 8px;
+  color: var(--text-desc-color);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* 📱 Responsive สำหรับ tablet */
+@media (min-width: 768px) and (max-width: 800px) {
+  .top {
+    height: 45dvh;
+  }
+  .profileImg {
+    height: 35dvh;
+  }
+  .profileImgItem {
+    height: 100%;
+    bottom: 19px;
+    left: 45px;
+  }
+  .galleryImg {
+    width: 25dvw;
+  }
+  .galleryDetail .title {
+    font-size: 8px;
+    color: var(--text-title-color);
+  }
+  .galleryDetail {
+    font-size: 8px;
+  }
+}
+
+/* 📱 Responsive สำหรับมือถือที่เล็กกว่า iphone 15 */
+
+@media (max-width: 480px) {
+  /* ✏️ ตั้งค่า font และ box-sizing พื้นฐาน */
+  * {
+    font-size: 8px;
+  }
+
+  /* 📋 รายการ (List) */
+  ul {
+    margin: 0 0 0 16px;
+  }
+
+  li div {
+    font-size: 8px;
+  }
+
+  /* 🧩 Section ย่อยทั่วไป */
+  .section {
+    margin-bottom: 8px;
+  }
+
+  .section .title {
+    font-size: 10px;
+  }
+
+  .section .desc {
+    font-size: 8px;
+  }
+
+  /* 🔼 ส่วนบน (Top Section) */
+  .top {
+    /* flex: 1; */
+    height: 55dvh;
+  }
+  .profileImg {
+    height: 35dvh;
+  }
+  .profileImg .top {
+    height: 25px;
+  }
+  .profileImg .top .left {
+    top: 1px;
+    bottom: -5px;
+  }
+
+  .profileImg .top .right {
+    top: 0;
+  }
+  .ImgBg {
+    top: 8px;
+    border: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .profileImgItem {
+    height: 99%;
+    bottom: 20px;
+    left: 6px;
+  }
+
+  /* ℹ️ ส่วนข้อมูลฝั่งซ้าย (Profile Info) */
+  .profileInfo {
+    padding: 12px;
+  }
+
+  /* 🧾 ส่วนขวา (Right Section) */
+
+  .rightEnd {
+    padding: 32px 16px 0 24px;
+  }
+
+  .rightEnd .head {
+    font-size: 18px;
+  }
+
+  .rightEnd .desc,
+  .rightSection .desc {
+    font-size: 8px;
+  }
+
+  /* 📚 กล่องข้อมูลย่อยในฝั่งขวา */
+  .rightSection {
+    margin: 24px 0 0 0;
+  }
+
+  .rightSection .title {
+    font-size: 12px;
+  }
+
+  .rightSection ul li {
+    font-size: 8px;
+  }
+
+  /* 🔽 ส่วนล่าง (Bottom Section) */
+  .bottom {
+    margin: 16px 0 0 0;
+    padding: 16px 24px 16px 24px;
+    flex: 1;
+  }
+
+  .galleryImg {
+    width: 25dvw;
+  }
+  .galleryDetail .title {
+    font-size: 8px;
+    color: var(--text-title-color);
+  }
+  .galleryDetail {
+    font-size: 8px;
+  }
+}
+
+/* 📱 Responsive สำหรับ iPhone 15 */
+@media (min-height: 430px) and (max-height: 768px) {
+  .profileImg .top {
+    height: 25px;
+  }
+  .profileImg .top .right {
+    top: -4px;
+  }
+  .profileImg {
+    height: 30dvh;
+  }
+  .ImgBg {
+    top: 4px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .profileImgItem {
+    height: 100%;
+    bottom: 15px;
+    left: 30px;
+  }
+  .right {
+    top: 0px;
+  }
+  .rightEnd {
+    padding: 12px 16px 0 24px;
+  }
+  .rightSection {
+    margin: 6px 0 0 0;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 380px) {
+  .profileImgItem {
+    height: 100%;
+    bottom: 12px;
+    /* left: 30px; */
+  }
+}
+
+@media (min-width: 760px) and (max-width: 800px) {
+  .top {
+    /* flex: 1; */
+    height: 65dvh;
+  }
+  .profileImg .bottom {
+    flex: none;
+    height: 300px;
+  }
+}
