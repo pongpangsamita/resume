@@ -5,6 +5,9 @@ on:
     branches:
       - main # หรือ branch ที่ใช้จริง
 
+permissions:
+  contents: write # <<=== เพิ่มบรรทัดนี้
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
