@@ -3,10 +3,10 @@ name: Auto Update README
 on:
   push:
     branches:
-      - main # หรือ branch ที่ใช้จริง
+      - main
 
 permissions:
-  contents: write # <<=== เพิ่มบรรทัดนี้
+  contents: write
 
 jobs:
   update-readme:
@@ -18,13 +18,12 @@ jobs:
 
       - name: Generate README.md
         run: |
-          echo "# 🎓 Samita Srikiew – Resume Website" > README.md
+          echo "# 🎓 สมิตา ศรีแก้ว – Resume Website" > README.md
           echo "" >> README.md
           echo "🔗 **Live Preview:** [pongpangsamita.github.io/resume](https://pongpangsamita.github.io/resume)" >> README.md
           echo "" >> README.md
           echo "🕒 Updated on: $(date '+%Y-%m-%d %H:%M:%S')" >> README.md
           echo "" >> README.md
-          echo "This README is automatically updated whenever new changes are pushed to the repository." >> README.md
 
       - name: Commit & Push changes
         run: |
